@@ -1,0 +1,25 @@
+<%= simple_form_for [@course, @evaluation] do |form| %>
+  <% if evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
+
+      <ul>
+      <% evaluation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="row">
+    <%= form.input :title, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :date, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :minNote, wrapper_html: { class: 'col-6' } %>
+    <%= form.hidden :course_id, wrapper_html: { class: 'col-6' } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+
+  </div>
+<% end %>

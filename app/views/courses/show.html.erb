@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p> <h3>Name:</h3> <%= @course.name %> </p>
+<p> <h3>Year:</h3> <%= @course.year %> </p>
+<br>
+
+<p> <%= link_to 'View evaluations', course_evaluations_path(@course) %> </p>
+
+<br>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
