@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   resources :courses do
   	resources :evaluations
-  	resources :students do 
-  		resources :exams
-	end  	
+  	resources :students do
+      resources :exams
+    end	
   end
 
   devise_for :professors #, only[:sessions]

@@ -1,10 +1,11 @@
 class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_course
   # GET /evaluations
   # GET /evaluations.json
   def index
     @evaluations = Evaluation.all
+
   end
 
   # GET /evaluations/1
@@ -69,6 +70,10 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.fetch(:evaluation, {})
+      params.require(:evaluation).permit(:title, :minNote, :date)
+    end
+
+    def set_course
+      @course = Course.find(params[:course_id])
     end
 end

@@ -9,7 +9,7 @@ class Student < ApplicationRecord
 
 	belongs_to :course
 	has_many :exams, dependent: => :destroy
-	#has_many :evaluations, :through => :course
+	has_many :evaluations, :through => :course #obtener las evaluaciones desde los examenes
 
 	#after_save
 end

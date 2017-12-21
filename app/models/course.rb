@@ -7,7 +7,7 @@ class Course < ApplicationRecord
 
 	has_many :students , dependent: :destroy
 	has_many :evaluations, dependent: :destroy
-	#has_many :exams, :through => :evaluations
+	has_many :exams, :through => :evaluations #obtener los examenes desde las evaluaciones
 
 	#after_create :create_evaluation
 

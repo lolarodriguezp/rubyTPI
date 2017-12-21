@@ -13,7 +13,7 @@
     <% @evaluations.each do |evaluation| %>
       <tr>
         
-        <td><%= link_to 'Edit', edit_course_evaluation_path(evaluation.id, evaluation) %></td>
+        <td><%= link_to 'Edit', edit_course_evaluation_path(evaluation.course_id, evaluation) %></td>
         <td><%= link_to 'Destroy', course_evaluation_path(evaluation.course_id, evaluation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Evaluation', new_course_evaluation_path(@evaluations) %>
+<%= link_to 'New Evaluation', new_course_evaluation_path(@course) %>
