@@ -15,7 +15,7 @@
     <%= form.input :note, wrapper_html: { class: 'col-6' } %>
   </div>
    <div class="row">
-    <%= form.input :evaluation, collection: @course.evaluations, value_method: :id, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :evaluation_id, collection: @course.evaluations, value_method: :id, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="actions">
