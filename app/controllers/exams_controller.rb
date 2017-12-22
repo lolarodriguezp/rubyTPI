@@ -29,7 +29,7 @@ class ExamsController < ApplicationController
   # POST /exams.json
   def create
     @exam = @student.exams.new(exam_params)
-
+    @evaluation = @course.evaluations.find(:evaluation_id)
     respond_to do |format|
       if @exam.save
         format.html { redirect_to student_exams_path(@student), notice: 'Exam was successfully created.' }
