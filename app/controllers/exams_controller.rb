@@ -1,10 +1,11 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  before_action :set_student
 
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.all
+    @exams = Exam.where(student_id: @student.id)
   end
 
   # GET /exams/1
@@ -28,7 +29,7 @@ class ExamsController < ApplicationController
 
     respond_to do |format|
       if @exam.save
-        format.html { redirect_to @exam, notice: 'Exam was successfully created.' }
+        format.html { redirect_to student_exams_path(@student), notice: 'Exam was successfully created.' }
         format.json { render :show, status: :created, location: @exam }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ExamsController < ApplicationController
   def update
     respond_to do |format|
       if @exam.update(exam_params)
-        format.html { redirect_to @exam, notice: 'Exam was successfully updated.' }
+        format.html { redirect_to student_exams_path(@student), notice: 'Exam was successfully updated.' }
         format.json { render :show, status: :ok, location: @exam }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ExamsController < ApplicationController
   def destroy
     @exam.destroy
     respond_to do |format|
-      format.html { redirect_to exams_url, notice: 'Exam was successfully destroyed.' }
+      format.html { redirect_to student_exams_path(@student), notice: 'Exam was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +68,12 @@ class ExamsController < ApplicationController
       @exam = Exam.find(params[:id])
     end
 
+    def set_student
+      @student = Student.find(params[:student_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.fetch(:exam, {})
+      params.require(:exam).permit(:note, :student_id, :evaluation_id)
     end
 end

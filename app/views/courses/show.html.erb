@@ -1,10 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p> <h3>Name:</h3> <%= @course.name %> </p>
-<p> <h3>Year:</h3> <%= @course.year %> </p>
-<br>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Year</th>
+  </tr>
+  <tr>
+    <th><%= @course.name %></th>
+    <th><%= @course.year %> </th>
+  </tr>
+ </table>
 
-<p> <%= link_to 'View evaluations', course_evaluations_path(@course) %> </p>
+
+<h3><%= link_to 'Edit', edit_course_path(@course) %> |
+   <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' } %></h3>
+
+<br>
+<br>
+<p> <%= link_to 'View evaluations', course_evaluations_path(@course) %> |
+	<%= link_to 'View students', course_students_path(@course) %>
+ </p>
 
 <br>
 

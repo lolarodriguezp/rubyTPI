@@ -1,25 +1,37 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Exams</h1>
-
-<table>
+<h1 style="text-align: center">Exams</h1>
+<br>
+<br>
+<% if @exams.empty? %>
+    <h3 style="text-align: center"> No exams posted </h3>
+<% else %>
+<table class="table table-striped" style="width: 50%; margin: auto">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th> Note </th>
+      <th> Evaluation </th>
+      <th> </th>
     </tr>
   </thead>
 
   <tbody>
     <% @exams.each do |exam| %>
       <tr>
-        <td><%= link_to 'Show', exam %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th> <%= exam.note %></th>
+        <th> <%= exam.evaluation.title %></th>
+        <th><%= link_to 'Edit', edit_course_student_exam_path(@student.course, @student, exam) %> |
+          <%= link_to 'Destroy', course_student_exams_path(@student, exam), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </th>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
+<br>
+<br>
 
-<%= link_to 'New Exam', new_exam_path %>
+<%= link_to 'New exam', new_course_student_exam_path(@student) %> |
+<%= link_to 'Back', course_students_path(@student.id) %>

@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<p> <h3>Title:</h3> <%= @evaluation.title %> </p>
+<p> <h3>Date:</h3> <%= @evaluation.date %> </p>
+<p> <h3>Minimus note of aprobation:</h3> <%= @evaluation.minNote %> </p>
+<br>
+
 <%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
 <%= link_to 'Back', evaluations_path %>

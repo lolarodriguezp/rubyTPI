@@ -10,6 +10,11 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    if params[:course_id] then
+      @p = params[:course_id]
+    else
+      @p = params[:id]
+end
   end
 
   # GET /courses/new

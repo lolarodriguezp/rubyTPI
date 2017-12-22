@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'courses#index'
 
   resources :courses do
-  	resources :evaluations
+  	resources :evaluations, except: :show
   	resources :students do
       resources :exams
     end	

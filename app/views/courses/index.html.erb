@@ -6,25 +6,24 @@
 <% if !@courses %>
     <p> No hay cursos disponibles </p>
 <% else %>
-  <table class="table table-striped">
+  <table class="table table-striped" style="width: 50%; margin: auto">
     <thead>
       <tr>
-        <th colspan="3"> Name </th>
-        <th colspan="3"> Year </th>
-        <th colspan="3"> </th>
-        <th colspan="3"> </th>
-        <th colspan="3"> </th>
+        <th> Name </th>
+        <th > Year </th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
       </tr>
     </thead>
 
     <tbody>
       <% @courses.each do |course| %>  
         <tr>
-          <td> <%= course.name %> </td>
-          <td> <%= course.year %> </td>
-          <td><%= link_to 'Show', course %></td>
-          <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th> <%= course.name %> </th>
+          <th> <%= course.year %> </th>
+          <th><%= link_to 'Show', course %> </th>
+
         </tr>
       <% end %>
   
