@@ -7,6 +7,10 @@ class Exam < ApplicationRecord
 	belongs_to :student
 	belongs_to :evaluation
 
+	before_save :set_evaluation
 
+	def set_evaluation
+      @evaluation = self.course.evaluations.find(params[:evaluation_id])
+    end
 	
 end

@@ -1,4 +1,4 @@
-<%= simple_form_for [@courses, @student, @exam] do |form| %>
+<%= simple_form_for [@course, @student, @exam] do |form| %>
   <% if exam.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
@@ -13,6 +13,9 @@
 
    <div class="row">
     <%= form.input :note, wrapper_html: { class: 'col-6' } %>
+  </div>
+   <div class="row">
+    <%= form.input :evaluation, collection: @course.evaluations, value_method: :id, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="actions">

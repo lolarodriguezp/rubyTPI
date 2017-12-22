@@ -1,11 +1,14 @@
 class ExamsController < ApplicationController
-  before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_student
+  before_action :set_course
+  #before_action :set_evaluation
+  before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.where(student_id: @student.id)
+    @exams = @student.exams
   end
 
   # GET /exams/1
@@ -15,7 +18,7 @@ class ExamsController < ApplicationController
 
   # GET /exams/new
   def new
-    @exam = Exam.new
+    @exam = @student.exams.new
   end
 
   # GET /exams/1/edit
@@ -25,7 +28,7 @@ class ExamsController < ApplicationController
   # POST /exams
   # POST /exams.json
   def create
-    @exam = Exam.new(exam_params)
+    @exam = @student.exams.new(exam_params)
 
     respond_to do |format|
       if @exam.save
@@ -65,11 +68,15 @@ class ExamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
-      @exam = Exam.find(params[:id])
+      @exam = @student.exams.find(params[:id])
     end
 
     def set_student
       @student = Student.find(params[:student_id])
+    end
+
+    def set_course
+      @course = @student.course
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -33,5 +33,5 @@
 <br>
 <br>
 
-<%= link_to 'New exam', new_course_student_exam_path(@student) %> |
-<%= link_to 'Back', course_students_path(@student.id) %>
+<%= link_to 'New exam', new_course_student_exam_path(@course, @student) %> |
+<%= link_to 'Back', course_students_path(@student.course_id) %>
