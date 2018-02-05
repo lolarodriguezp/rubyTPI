@@ -29,7 +29,7 @@ class EvaluationsController < ApplicationController
 
     respond_to do |format|
       if @evaluation.save
-        format.html { redirect_to course_evaluations_path(@course), notice: 'Evaluation was successfully created.' }
+        format.html { redirect_to course_evaluations_path(@course), notice: '¡Se creo la evaluación correctamente!' }
         format.json { render :show, status: :created, location: @evaluation }
       else
         format.html { render :new }
@@ -70,7 +70,7 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:title, :minNote, :date, :course_id)
+      params.require(:evaluation).permit(:title, :minnote, :date, :course_id)
     end
 
     def set_course

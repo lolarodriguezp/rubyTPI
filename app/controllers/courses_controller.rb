@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
       @p = params[:course_id]
     else
       @p = params[:id]
-end
+    end
   end
 
   # GET /courses/new

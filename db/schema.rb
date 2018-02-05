@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171221011849) do
   create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.date "date"
-    t.integer "minNote"
+    t.integer "minnote"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

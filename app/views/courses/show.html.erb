@@ -1,27 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <table>
   <tr>
-    <th>Name</th>
-    <th>Year</th>
-  </tr>
-  <tr>
-    <th><%= @course.name %></th>
-    <th><%= @course.year %> </th>
+    <th><%= @course %></th>
   </tr>
  </table>
 
 
-<h3><%= link_to 'Edit', edit_course_path(@course) %> |
-   <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' } %></h3>
+<h3><%= link_to 'Editar', edit_course_path(@course) %> |
+   <%= link_to 'Eliminar', course_path, method: :delete, data: { confirm: 'Está seguro de eliminar el curso?' } %></h3>
 
 <br>
 <br>
-<p> <%= link_to 'View evaluations', course_evaluations_path(@course) %> |
-	<%= link_to 'View students', course_students_path(@course) %>
+<p> <%= link_to 'Ver evaluaciones', course_evaluations_path(@course) %> |
+	<%= link_to 'Ver alumnos', course_students_path(@course) %>
  </p>
 
 <br>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Atrás', courses_path %>

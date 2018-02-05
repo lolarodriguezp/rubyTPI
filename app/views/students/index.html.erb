@@ -1,15 +1,14 @@
-<p id="notice"><%= notice %></p>
-<h1 style="text-align: center">Students for <%= @course.name %></h1>
+<h1 style="text-align: center">Alumnos de <%= @course.name %></h1>
 <br>
 <br>
 <% if @students.empty? %>
-    <h3 style="text-align: center"> No students posted </h3>
+    <h3 style="text-align: center"> No hay alumnos inscriptos </h3>
 <% else %>
 <table class="table table-striped" style="width: 50%; margin: auto">
   <thead>
     <tr>
-      <th> First Name </th>
-      <th> Last Name </th>
+      <th> Nombre </th>
+      <th> Apellido </th>
       <th> DNI </th>
       <th> Legajo </th>
       <th> Mail </th>
@@ -25,9 +24,9 @@
         <th> <%= student.dni %></th>
         <th> <%= student.legajo %></th>
         <th> <%= student.mail %></th>
-        <th><%= link_to 'Edit', edit_course_student_path(@course, student) %> |
-          <%= link_to 'Destroy', course_students_path(@course, student), method: :delete, data: { confirm: 'Are you sure?' } %> | 
-          <%= link_to 'View exams', course_student_exams_path(@course, student, @exams)%>
+        <th><%= link_to 'Editar', edit_course_student_path(@course, student) %> |
+          <%= link_to 'Eliminar', course_student_path(@course, student), method: :delete, data: { confirm: 'Está seguro?' } %> | 
+          <%= link_to 'Ver exámenes', course_student_exams_path(@course, student, @exams)%>
         </th>
 
       </tr>

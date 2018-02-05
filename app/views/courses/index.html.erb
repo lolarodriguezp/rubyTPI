@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <h1 style="text-align: center">Cursos</h1>
+</div>
 
-<h1>Courses</h1>
 <br>
 <br>
-<% if !@courses %>
-    <p> No hay cursos disponibles </p>
+<% if @courses.empty? %>
+    <p style="text-align: center"> No hay cursos disponibles </p>
 <% else %>
-  <table class="table table-striped" style="width: 50%; margin: auto">
+  <table class="table table-striped" style="width: 50%; margin: auto; text-align: center">
     <thead>
       <tr>
-        <th> Name </th>
-        <th > Year </th>
-        <th> </th>
-        <th> </th>
-        <th> </th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <% @courses.each do |course| %>  
         <tr>
-          <th> <%= course.name %> </th>
-          <th> <%= course.year %> </th>
-          <th><%= link_to 'Show', course %> </th>
-
+          <th> <%= course %> </th>
+          <th>
+          <div class="btn-group" role="group">
+            <%= link_to 'Ver', course, class:"btn btn-secondary" %>
+            <%= link_to 'Eliminar', course, class: "btn btn-secondary", method: :delete, data: { confirm: 'Está seguro de eliminar el curso?' }%>
+          </div>
+          </th>
         </tr>
       <% end %>
   
@@ -32,4 +33,6 @@
 <% end %>
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+<div style="padding: 15px;">
+  <%= link_to 'New Course', new_course_path, class: "btn btn-secondary" %>
+</div>

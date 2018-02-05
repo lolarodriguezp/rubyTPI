@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  #resources :exams
-  
-  #resources :students
 
-  #resources :evaluations
-  root to: 'courses#index'
+  get 'welcome/index'
+  get 'welcome/students'
+  get 'welcome/evaluations'
+
+  root to: 'welcome#index'
 
   resources :courses do
   	resources :evaluations, except: :show
