@@ -1,18 +1,17 @@
-<div>
-  <h1 style="text-align: center">Cursos</h1>
-</div>
+<div class="listall">
+  <h1 class="mintitle"><%= t 'views.courses.title' %></h1>
 
-<br>
-<br>
 <% if @courses.empty? %>
-    <p style="text-align: center"> No hay cursos disponibles </p>
+    <p class="msj"> No hay cursos disponibles </p>
+    
 <% else %>
-  <table class="table table-striped" style="width: 50%; margin: auto; text-align: center">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th></th>
         <th></th>
       </tr>
+
     </thead>
 
     <tbody>
@@ -20,10 +19,18 @@
         <tr>
           <th> <%= course %> </th>
           <th>
-          <div class="btn-group" role="group">
-            <%= link_to 'Ver', course, class:"btn btn-secondary" %>
-            <%= link_to 'Eliminar', course, class: "btn btn-secondary", method: :delete, data: { confirm: 'Está seguro de eliminar el curso?' }%>
-          </div>
+            <div class="dropdown">
+              <div class="btn-group" role="group">
+                <%= link_to t('global.actions.edit'), edit_course_path(course), class: "btn btn-secondary"%>
+                <%= link_to t('global.actions.destroy'), course, class: "btn btn-secondary", method: :delete, data: { confirm: t('global.actions.confirm_destroy') }%>
+              </div>
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Selecciona.. </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to t('views.evaluations.title'), course_evaluations_path(course), class:"dropdown-item" %>
+                <%= link_to t('views.students.title'), course_students_path(course), class:"dropdown-item" %>
+                <%= link_to t('views.exams.title'), summary_path(course), class:"dropdown-item" %>
+              </div>
+            </div>
           </th>
         </tr>
       <% end %>
@@ -31,8 +38,9 @@
     </tbody>
   </table>
 <% end %>
-<br>
 
-<div style="padding: 15px;">
-  <%= link_to 'New Course', new_course_path, class: "btn btn-secondary" %>
+<div class="bottombtn">
+  <%= link_to 'Agregar curso', new_course_path, class: "btn btn-danger" %>
+</div>
+
 </div>

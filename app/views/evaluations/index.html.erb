@@ -1,40 +1,51 @@
+<div class="listall">
+  <h1 class="mintitle"> <%= t 'views.evaluations.title' %></h1>
 
-<h1 style="text-align: center">Evaluaciones</h1>
-<br>
-<br>
-<% if @evaluations.empty? %>
-    <h3 style="text-align: center"> No hay evaluaciones asignadas </h3>
-<% else %>
-<table class="table table-striped" style="width: 50%; margin: auto">
-  <thead>
-    <tr>
-      <th> Titulo </th>
-      <th> Fecha </th>
-      <th> Nota mínima de aprobación </th>
-      <th> </th>
-    </tr>
-  </thead>
+  <% if @evaluations.empty? %>
+      <p class="msj"> No hay evaluaciones asignadas </p>
 
-  <tbody>
-    <% @evaluations.each do |evaluation| %>
-      <tr>
-        <th> <%= evaluation.title %></th>
-        <th> <%= evaluation.date %></th>
-        <th> <%= evaluation.minnote %></th>
-        <th><%= link_to 'Editar', edit_course_evaluation_path(@course, evaluation) %>
-          <br> 
-          <%= link_to 'Eliminar', course_evaluation_path(@course, evaluation), method: :delete, data: { confirm: 'Está seguro de eliminar el curso?' } %>
-        </th>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th> <%= t('activerecord.attributes.evaluation.title')%> </th>
+          <th> <%= t('activerecord.attributes.evaluation.date')%> </th>
+          <th> <%= t('activerecord.attributes.evaluation.min_note')%> </th>
+          <th> </th>
+        </tr>
+      </thead>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
+      <tbody>
+        <% @evaluations.each do |evaluation| %>
+          <tr>
+            <th> <%= evaluation %></th>
+            <td> <%= evaluation.date %></td>
+            <td> <%= evaluation.min_note %></td>
+            
+            <th>
+              <div class="btn-group" role="group">
+                <%= link_to t('global.actions.edit'), edit_course_evaluation_path(@course, evaluation), class:'btn btn-secondary' %>
+                <%= link_to t('global.actions.notes'), results_path(@course, evaluation), class:'btn btn-secondary' %>
+                <%= link_to t('global.actions.destroy'), course_evaluation_path(@course, evaluation), method: :delete, data: {confirm: t('global.actions.confirm_destroy')}, class:'btn btn-secondary' %>
+              </div>
+            </th>
 
-<br>
-<br>
-<br>
+          </tr>
+          
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Evaluation', new_course_evaluation_path(@course) %> |
-<%= link_to 'Back', course_path(@course.id) %>
+  <% end %>
+</div>
+
+<div>
+  
+  
+</div>
+
+<div class="bottombtn">
+  <%= link_to 'Agregar Evaluación', new_course_evaluation_path(@course), class:"btn btn-danger" %> |
+  <%= link_to t('global.actions.back'), courses_path, class:'btn btn-secondary'%>
+</div>
+

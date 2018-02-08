@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'welcome/students'
   get 'welcome/evaluations'
 
+  get 'courses/:course_id/evaluations/:id/results', to:'evaluations#results', as: 'results'
+
+  get 'courses/:course_id/summary', to:'courses#summary', as: 'summary'
+
+
   root to: 'welcome#index'
 
   resources :courses do

@@ -1,17 +1,18 @@
+    <% if current_professor %>
+
  	<li class="nav-item">
-    	<a><%= link_to 'Cursos', courses_path, class: 'nav-link' %></a>
+    	<a><%= link_to t('views.courses.title'), courses_path, class: 'nav-link' %></a>
 	</li>
     <li class="nav-item">
-    	<a><%= link_to 'Alumnos', welcome_students_path, class: 'nav-link' %></a>
+    	<a><%= link_to t('views.students.title'), welcome_students_path, class: 'nav-link' %></a>
     </li>
     <li class="nav-item">
-    	<a><%= link_to 'Evaluaciones', welcome_evaluations_path, class: 'nav-link' %></a>
-    </li>
-    <li class="nav-item">
-    	<a><%= link_to 'Examenes', root_path, class: 'nav-link' %></a>
+    	<a><%= link_to t('views.evaluations.title'), welcome_evaluations_path, class: 'nav-link' %></a>
     </li>
 
+     <li class="nav-item">
+    	<a><%= link_to t('devise.sessions.header.logout'), destroy_professor_session_path, method: :delete,  class: 'nav-link' %></a>
+    </li>
 
+    <% end %>
 
-
-   <%# add navigation links to this file %>

@@ -1,0 +1,16 @@
+es:
+  global:
+    actions:
+      new: Nuevo
+      show: Ver detalles
+      edit: Editar
+      destroy: Eliminar
+      back: Volver
+      notes: "Cargar notas"
+      confirm_destroy: "¿Está seguro de eliminar?"
+    form:
+      actions:
+        submit: Guardar cambios
+    tooltip:
+      add: Agregar
+    destroy: Eliminar

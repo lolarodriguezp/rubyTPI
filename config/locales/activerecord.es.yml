@@ -1,0 +1,100 @@
+es:
+  activerecord:
+    models:
+      course: "Curso"
+      evaluation: "Evaluación"
+      student: "Alumno"
+      exam: "Nota"
+    attributes:
+        course:
+          year: "Año"
+          name: "Nombre"
+        evaluation:
+          title: "Titulo"
+          date: "Fecha"
+          min_note: "Nota mínima"
+        student:
+          first_name: "Nombre"
+          last_name: "Apellido"
+          document: "DNI"
+          docket: "Legajo"
+          email: "Mail"
+        exam:
+          note: "Nota"
+    errors:
+      models:
+        student:
+          attributes:
+            document:
+              too_long: "Debe tener entre 7 y 8 caracteres."
+              too_short: "Debe tener entre 7 y 8 caracteres."
+            docket:
+              wrong_length: "Debe tener 7 caracteres."
+            email:
+              invalid: "El formato de mail es inválido."
+        course:
+          attributes:
+            year:
+              greater_than_or_equal_to: "Debe ser mayor que o igual a %{count}."
+      messages:
+        blank:   "No puede estar en blanco."
+        incorrect_email_format: "Formato incorrecto."
+        greater_than_or_equal_to: "Debe ser mayor que o igual a %{count}."
+        not_a_number: "Debe ser un número"
+        not_an_integer: "Debe ser un entero"
+        not_saved:
+          one: "Ha habido 1 error:"
+          other: "Han habido %{count} errores:"
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%-d/%-m/%Y"
+      long: "%-d de %B de %Y"
+      short: "%-d de %b"
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year

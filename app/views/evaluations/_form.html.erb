@@ -1,22 +1,11 @@
 <%= simple_form_for [@course, @evaluation] do |form| %>
-  <% if evaluation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
-
-      <ul>
-      <% evaluation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
    <div class="row">
     <%= form.input :title, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="row">
-    <%= form.input :minnote, label: 'Minimum note', wrapper_html: { class: 'col-6' } %>
+    <%= form.input :min_note, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="row">
@@ -26,8 +15,9 @@
 
 
 
-  <div class="actions">
-    <%= form.submit class:'btn btn-success' %>
+  <div>
+    <%= form.submit class:'btn btn-danger', 
+    value: t('global.form.actions.submit') %>
 
   </div>
 <% end %>

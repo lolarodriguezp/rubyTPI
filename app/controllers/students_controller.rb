@@ -3,14 +3,8 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   
   # GET /students
-  # GET /students.json
   def index
     @students = @course.students
-  end
-
-  # GET /students/1
-  # GET /students/1.json
-  def show
   end
 
   # GET /students/new
@@ -23,43 +17,28 @@ class StudentsController < ApplicationController
   end
 
   # POST /students
-  # POST /students.json
   def create
     @student = @course.students.new(student_params)
-
-    respond_to do |format|
       if @student.save
-        format.html { redirect_to course_students_path(@course), notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
+        redirect_to course_students_path(@course), notice: 'Alumno creado correctamente.'
       else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /students/1
-  # PATCH/PUT /students/1.json
   def update
-    respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to course_students_path(@course), notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
+        redirect_to course_students_path(@course), notice: 'Alumno actualizado correctamente.'
       else
-        format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /students/1
-  # DELETE /students/1.json
   def destroy
     @student.destroy
-    respond_to do |format|
-      format.html { redirect_to course_students_path(@course), notice: 'Student was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to course_students_path(@course), notice: 'Alumno eliminado correctamente.'
   end
 
   private
@@ -70,7 +49,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:firstName, :lastName, :dni, :legajo, :mail, :course_id)
+      params.require(:student).permit(:first_name, :last_name, :document, :docket, :email, :course_id, :exam_id)
     end
 
     def set_course

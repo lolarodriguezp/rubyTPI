@@ -1,17 +1,17 @@
 class Exam < ApplicationRecord
-	validates :note, presence: true
-	
-	validates :student_id, presence:true, 
-	uniqueness:{scope: :exam_id, 
-	message:"El estudiante ingresado ya pertenece al exámen especificado"}
+  validates :note, numericality: {greater_than_or_equal_to: 0, allow_nil: true}
+  
+  validates :student_id, presence:true, 
+    uniqueness:{scope: :evaluation_id, 
+                message:"El estudiante ingresado ya pertenece al exámen especificado"}
 
-	validates :evaluation_id, presence:true
+  validates :evaluation_id, presence:true
 
-	belongs_to :student
-	belongs_to :evaluation
-
-
+  belongs_to :student
+  belongs_to :evaluation
 
 
-	
+
+
+
 end

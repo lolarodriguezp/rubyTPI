@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171221011849) do
   create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.date "date"
-    t.integer "minnote"
+    t.integer "min_note"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171221011849) do
   end
 
   create_table "exams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float "note", limit: 24, default: 0.0, null: false
+    t.float "note", limit: 24
     t.bigint "student_id"
     t.bigint "evaluation_id"
     t.datetime "created_at", null: false
@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(version: 20171221011849) do
   end
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "lastName"
-    t.string "firstName"
-    t.integer "dni"
-    t.string "legajo"
-    t.string "mail"
+    t.string "last_name"
+    t.string "first_name"
+    t.integer "document"
+    t.string "docket"
+    t.string "email"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

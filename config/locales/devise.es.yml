@@ -1,0 +1,16 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+es:
+  devise:
+    failure:
+      already_authenticated: "Ya te has logueado."
+      invalid: "Usuario o password inválidos  %{authentication_keys}."
+      not_found_in_database: "%{authentication_keys} o contraseña inválida."
+      unauthenticated: "Debe iniciar sesión para para continuar."
+    sessions:
+      new: 'Inicio de sesión'
+      header: 
+          logout: "Cerrar sesión"
+      signed_in: "Ha iniciado sesión con éxito."
+      signed_out: "Ha cerrado sesión con éxito"
+      already_signed_out: "Ya ha iniciado sesión"

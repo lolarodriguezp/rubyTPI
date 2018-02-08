@@ -1,5 +1,9 @@
-<h1>New Evaluation</h1>
+<div class='offset-4'>
+	<h1 class='formtittle'>Nueva evaluación</h1>
+	<%= render 'form', evaluation: @evaluation %>
+</div>
 
-<%= render 'form', evaluation: @evaluation %>
+<div class="bottombtn">
+	<%= link_to t('global.actions.back'), course_evaluations_path(@course), class:'btn btn-secondary'%>
+</div>
 
-<%= link_to 'Back', course_evaluations_path(@course) %>

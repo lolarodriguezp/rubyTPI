@@ -3,7 +3,7 @@ class CreateEvaluations < ActiveRecord::Migration[5.1]
     create_table :evaluations do |t|
       t.string :title
       t.date :date
-      t.integer :minnote
+      t.integer :min_note
 
       t.references :course, foreign_key: true
       t.timestamps

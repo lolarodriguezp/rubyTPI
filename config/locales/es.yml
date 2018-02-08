@@ -1,0 +1,13 @@
+es:
+  views:
+    application:
+      title: "Plataforma Ruby"
+      home: "Inicio"
+    courses:
+      title: "Cursos"
+    evaluations:
+      title: "Evaluaciones"
+    students:
+      title: "Alumnos"
+    exams:
+      title: "Notas"

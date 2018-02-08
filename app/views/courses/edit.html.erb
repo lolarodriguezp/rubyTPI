@@ -1,6 +1,8 @@
-<h1>Editing Course</h1>
+<div class="offset-4">
+	<h1 class="formtitle">Editar curso</h1>
+	<%= render 'form', course: @course %>
+</div>
 
-<%= render 'form', course: @course %>
-
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<div class="bottombtn">
+	<%= link_to t('global.actions.back'), courses_path, class: 'btn btn-secondary' %>
+</div>

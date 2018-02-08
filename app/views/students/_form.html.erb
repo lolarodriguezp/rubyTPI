@@ -1,40 +1,30 @@
 <%= simple_form_for [@course, @student] do |form| %>
-  <% if student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
    <div class="row">
-    <%= form.input :firstName, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :first_name, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="row">
-    <%= form.input :lastName, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :last_name, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="row">
-    <%= form.input :dni, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :document, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="row">
-    <%= form.input :legajo, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :docket, wrapper_html: { class: 'col-6' } %>
   </div>
 
   <div class="row">
-    <%= form.input :mail, wrapper_html: { class: 'col-6' } %>
+    <%= form.input :email, wrapper_html: { class: 'col-6' } %>
     <%= form.association :course, value_method: :id, as: :hidden%>
   </div>
 
 
-  <div class="actions">
-    <%= form.submit class:'btn btn-success' %>
-
+  <div>
+    <%= form.submit class:'btn btn-danger',
+    value: t('global.form.actions.submit') %>
   </div>
+  
 <% end %>

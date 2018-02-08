@@ -1,43 +1,47 @@
-<h1 style="text-align: center">Alumnos de <%= @course.name %></h1>
-<br>
-<br>
-<% if @students.empty? %>
-    <h3 style="text-align: center"> No hay alumnos inscriptos </h3>
-<% else %>
-<table class="table table-striped" style="width: 50%; margin: auto">
-  <thead>
-    <tr>
-      <th> Nombre </th>
-      <th> Apellido </th>
-      <th> DNI </th>
-      <th> Legajo </th>
-      <th> Mail </th>
-      <th> </th>
-    </tr>
-  </thead>
+<div class="listall">
+  <h1 class="mintitle">Alumnos de <%= @course.name %></h1>
 
-  <tbody>
-    <% @students.each do |student| %>
+  <% if @students.empty? %>
+      <p class="msj"> No hay alumnos inscriptos </p>
+  <% else %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <th> <%= student.firstName %></th>
-        <th> <%= student.lastName %></th>
-        <th> <%= student.dni %></th>
-        <th> <%= student.legajo %></th>
-        <th> <%= student.mail %></th>
-        <th><%= link_to 'Editar', edit_course_student_path(@course, student) %> |
-          <%= link_to 'Eliminar', course_student_path(@course, student), method: :delete, data: { confirm: 'Está seguro?' } %> | 
-          <%= link_to 'Ver exámenes', course_student_exams_path(@course, student, @exams)%>
-        </th>
-
+        <th> <%= t('activerecord.attributes.student.first_name')%> </th>
+        <th> <%= t('activerecord.attributes.student.last_name')%> </th>
+        <th> <%= t('activerecord.attributes.student.document')%> </th>
+        <th> <%= t('activerecord.attributes.student.docket')%> </th>
+        <th> <%= t('activerecord.attributes.student.email')%> </th>
+        <th> </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
+    </thead>
 
-<br>
-<br>
-<br>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td> <%= student.first_name %></td>
+          <td> <%= student.last_name %></td>
+          <td> <%= student.document %></td>
+          <td> <%= student.docket %></td>
+          <td> <%= student.email %></td>
+          <th>
+            <div class="btn-group" role="group">
+            <%= link_to t('global.actions.edit'), edit_course_student_path(@course, student), class:'btn btn-secondary' %>
+            <%= link_to t('global.actions.destroy'), course_student_path(@course, student), method: :delete, data: {confirm: t('global.actions.confirm_destroy')}, class:'btn btn-secondary' %>
+            </div>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+<div class="bottombtn">
+  <%= link_to 'Agregar alumno', new_course_student_path(@course), class:'btn btn-danger' %>
+</div>
 
-<%= link_to 'New Student', new_course_student_path(@course) %> |
-<%= link_to 'Back', course_path(@course.id) %>
+</div>
+
+<div class="bottombtn">
+  <%= link_to t('global.actions.back'), courses_path(@course.id), class:'btn btn-secondary' %>  
+</div>
+

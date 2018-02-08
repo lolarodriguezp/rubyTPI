@@ -1,16 +1,10 @@
 class EvaluationsController < ApplicationController
   before_action :set_course
-  before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_evaluation, only: [:edit, :update, :destroy, :results]
   
   # GET /evaluations
-  # GET /evaluations.json
   def index
     @evaluations = @course.evaluations
-  end
-
-  # GET /evaluations/1
-  # GET /evaluations/1.json
-  def show
   end
 
   # GET /evaluations/new
@@ -23,43 +17,32 @@ class EvaluationsController < ApplicationController
   end
 
   # POST /evaluations
-  # POST /evaluations.json
   def create
     @evaluation = @course.evaluations.new(evaluation_params)
-
-    respond_to do |format|
       if @evaluation.save
-        format.html { redirect_to course_evaluations_path(@course), notice: '¡Se creo la evaluación correctamente!' }
-        format.json { render :show, status: :created, location: @evaluation }
+        redirect_to course_evaluations_path(@course), notice: 'Evaluación creada correctamente.'
       else
-        format.html { render :new }
-        format.json { render json: @evaluation.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
+  
   end
 
   # PATCH/PUT /evaluations/1
-  # PATCH/PUT /evaluations/1.json
   def update
-    respond_to do |format|
       if @evaluation.update(evaluation_params)
-        format.html { redirect_to course_evaluations_path(@course), notice: 'Evaluation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @evaluation }
+        redirect_to course_evaluations_path(@course), notice: 'Evaluación actualizada correctamente.'
       else
-        format.html { render :edit }
-        format.json { render json: @evaluation.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /evaluations/1
-  # DELETE /evaluations/1.json
   def destroy
     @evaluation.destroy
-    respond_to do |format|
-      format.html { redirect_to course_evaluations_path(@course), notice: 'Evaluation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to course_evaluations_path(@course), notice: 'Evaluación eliminada correctamente.'
+  end
+
+  def results
   end
 
   private
@@ -70,7 +53,7 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:title, :minnote, :date, :course_id)
+      params.require(:evaluation).permit(:title, :min_note, :date, :course_id, exams_attributes:[:id, :note])
     end
 
     def set_course

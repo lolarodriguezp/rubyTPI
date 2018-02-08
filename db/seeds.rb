@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+Professor.create(email: 'p.ruby@gmail.com', password: 'ruby2017')
+
+course_1 = Course.create(name: "TTPS", year: Date.today.year)
+course_2 = Course.create(name: "Lenguaje", year: Date.today.year)
+
+evaluation1 = Evaluation.create(title: "Parcial 1", date: Date.today, course: course_1, min_note: "4")
+evaluation1 = Evaluation.create(title: "Parcial 2", date: Date.today, course: course_1, min_note: "4")
+evaluation1 = Evaluation.create(title: "Parcial 1", date: Date.today, course: course_2, min_note: "4")
+evaluation1 = Evaluation.create(title: "Parcial 2", date: Date.today, course: course_2, min_note: "4")
+
+student_1 = Student.create(first_name: "Maria", last_name: "Lopez", document: "12345678", 
+                           docket: "13502/7", email: "m.lopez@gmail.com", course: course_1)
+student_2 = Student.create(first_name: "Pablo", last_name: "Fernandez", document: "12245678",
+                           docket: "13260/4", email:"p.fernandez@gmail.com", course: course_1)
+student_3 = Student.create(first_name: "Lucio", last_name: "Ucar", document: "12345338",
+                           docket: "15482/7", email:"l.ucar@gmail.com", course: course_1)
+student_4 = Student.create(first_name: "Roberto", last_name: "Agostino", document: "14545678", 
+                           docket: "13045/1", email:"r.agostino@gmail.com", course: course_1)
+student_5 = Student.create(first_name: "Analia", last_name: "Alvarez", document: "4444678", 
+                           docket: "13250/7", email:"a.alvarez@gmail.com", course: course_2)
+student_6 = Student.create(first_name: "Fernanda", last_name: "Perez", document: "77745678", 
+                           docket:"14782/4", email:"f.perez@gmail.com", course: course_2)
+student_7 = Student.create(first_name: "Mario", last_name: "Rodriguez", document: "87655678",
+                           docket:"16254/7", email:"m.rodriguez@gmail.com", course: course_2)
+student_8 = Student.create(first_name: "Agustin", last_name: "Tau", document: "12342323",
+                           docket: "12047/2", email:"a.tau@gmail.com", course: course_2)

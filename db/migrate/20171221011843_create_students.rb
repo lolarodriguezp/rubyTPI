@@ -1,11 +1,11 @@
 class CreateStudents < ActiveRecord::Migration[5.1]
   def change
     create_table :students do |t|
-      t.string :lastName
-      t.string :firstName
-      t.integer :dni
-      t.string :legajo
-      t.string :mail
+      t.string :last_name
+      t.string :first_name
+      t.integer :document
+      t.string :docket
+      t.string :email
 
       t.references :course, foreign_key: true
 
