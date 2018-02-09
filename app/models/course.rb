@@ -9,8 +9,9 @@ class Course < ApplicationRecord
   has_many :students , dependent: :destroy
   has_many :evaluations, dependent: :destroy
 
-  #has_many :exams, :through => :evaluations 
-  #obtener los examenes desde las evaluaciones
+  has_many :exams, :through => :evaluations 
+
+  accepts_nested_attributes_for :exams
 
   def to_s
     "#{name} - #{year}"

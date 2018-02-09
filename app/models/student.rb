@@ -15,16 +15,13 @@ class Student < ApplicationRecord
 
   after_save :create_exams
 
-  #validates_format_of :mail, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i
-
   belongs_to :course
 
   has_many :exams, :dependent => :destroy
 
   has_many :evaluations, :through => :course 
-  #obtener las evaluaciones desde los examenes
 
-  accepts_nested_attributes_for :exams
+  #accepts_nested_attributes_for :exams
 
   def to_s
     "#{first_name} #{last_name}"
@@ -37,9 +34,6 @@ class Student < ApplicationRecord
    exams.find_or_create_by(evaluation_id: evaluation.id)
   end
  end	
-#el id de student esta implicito
-  
-
-  
+ 
 
 end

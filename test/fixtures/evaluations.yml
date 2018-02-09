@@ -1,11 +1,23 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+uno:
+  tittle: Primer parcial
+  min_note: 4.0
+  date: 2017-02-15
+  course: c_uno
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+dos:
+  tittle: Segundo parcial
+  min_note: 7.0
+  date: 2018-05-12
+  course: c_uno
+
+tres:
+  tittle: Primer parcial
+  min_note: 7.0
+  date: 2016-04-07
+  course: c_tres
+
+cuatro:
+  tittle: Primer parcial
+  min_note: 7.0
+  date: 2017-08-12
+  course: c_tres

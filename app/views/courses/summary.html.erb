@@ -1,27 +1,7 @@
-<%= form_for [@course] do |f| %>
-  <h3 class="mintitle"> Resumen de notas </h3>
-  <table  class=class="table table-striped">
-    <tr>
-      <th>  <%= t 'views.students.title' %> </th>
-      <% @course.evaluations.each do |e|  %>
-        <th> <%= e %></th>
-      <% end %>
-    </tr>
-    <%= f.fields_for :exams do |exams_form| %>
-    <tr>
-      <td >      
-        <%= exams_form.object.student.to_s %>
-      </td>
-      <td>
-        <%= exams_form.text_field :note, placeholder: "Ausente"  %>
-      </td>
-    </tr>
-    <% end %>
-
-  </table>
-
- <%= f.submit class:'btn btn-danger', 
-  value: t('global.form.actions.submit') %>   
-
-  
-<% end %>
+<div class="listall">
+  <h1 class='mintitle'> <%= @course %></h1>
+  <%= render 'sum', course: @course %>
+</div>
+<div class='bottombtn'>
+  <%= link_to t('global.actions.back'), courses_path, class:' btn btn-secondary' %>		
+</div> 

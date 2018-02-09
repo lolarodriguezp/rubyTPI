@@ -15,11 +15,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: ' '
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: rubyTPI_development
+#  database: rubyTPI_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: rubyTPI_production
-  username: rubyTPI
-  password: <%= ENV['RUBYTPI_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>

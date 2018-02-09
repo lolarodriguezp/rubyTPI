@@ -10,7 +10,23 @@ class Exam < ApplicationRecord
   belongs_to :student
   belongs_to :evaluation
 
+  def to_s
+  	if note.nil?
+  		"Ausente"
+  	else
+  		"#{note}"
+  	end
+  end
 
+  def approved
+    if note.nil?
+      "-"
+    elsif note >= evaluation.min_note
+      "Aprobado"
+    else
+      "Desaprobado"
+    end
+  end
 
 
 

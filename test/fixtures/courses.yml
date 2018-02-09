@@ -1,11 +1,19 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#c_uno tiene estudiantes y evaluaciones
+c_uno:
+  year: 2017
+  name: C uno
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+#c_dos tiene estudiantes
+c_dos:
+  year: 2015
+  name: C dos
+
+#c_tres tiene evaluaciones
+c_tres:
+  year: 2016
+  name: C tres
+
+#Curso_cuatro no tiene estudiantes ni evaluaciones
+c_cuatro:
+  year: 2018
+  name: C cuatro
