@@ -31,7 +31,7 @@ class ExamsController < ApplicationController
       else
         render :new
       end
-    end
+
   end
 
   # PATCH/PUT /exams/1
@@ -49,7 +49,7 @@ class ExamsController < ApplicationController
   def destroy
     @exam.destroy
     redirect_to student_exams_path(@student), notice: 'Exam was successfully destroyed.'
-    end
+
   end
 
   private
