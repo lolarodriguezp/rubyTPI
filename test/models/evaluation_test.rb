@@ -1,7 +1,6 @@
 require 'test_helper'
 
-class EvaluationTest < ActiveSupport::TestCase
-require 'test_helper'
+
 
 class EvaluationTest < ActiveSupport::TestCase
 
@@ -11,7 +10,7 @@ class EvaluationTest < ActiveSupport::TestCase
   	end
 
 	test "should not create evaluation, year must be equal than or greater than course year" do
-		e=Evaluation.create(tittle:"Parcial1",date:'2015-10-01',min_note:4,course:@course)
+		e=Evaluation.create(title:"Parcial1",date:'2015-10-01',min_note:4,course:@course)
 
 		refute e.valid?
 		refute e.errors[:date].empty?
@@ -27,10 +26,10 @@ class EvaluationTest < ActiveSupport::TestCase
 	end
 
 	test "should student be disapproved" do 	
-		s=Student.create(first_name:"Pepe",last_name:"perez",docket:31524879,email:"pepe.p@gmail.com",docket:'12504/8',course:@course)
+		s=Student.create(first_name:"Pepe",last_name:"perez",document:41528793, email:"pepe.p@gmail.com",docket:'12504/8',course:@course)
 		exam=s.exams.detect{|e| e.evaluation==@evaluation}
-		assert exam.exam.nil?
-		exam.exam=2
+		assert exam.note.nil?
+		exam.note=2
 		exam.save
 		assert @evaluation.min_note > exam.note 
 	end

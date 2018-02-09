@@ -1,10 +1,10 @@
 c1_s1:
-  exam: 2
+  note: 2
   student: uno
   evaluation: uno
 
 c1_s2:
-  exam: 9
+  note: 9
   student: dos
   evaluation: uno
 

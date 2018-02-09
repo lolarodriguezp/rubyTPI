@@ -1,23 +1,23 @@
 uno:
-  tittle: Primer parcial
+  title: Primer parcial
   min_note: 4.0
   date: 2017-02-15
   course: c_uno
 
 dos:
-  tittle: Segundo parcial
+  title: Segundo parcial
   min_note: 7.0
   date: 2018-05-12
   course: c_uno
 
 tres:
-  tittle: Primer parcial
+  title: Primer parcial
   min_note: 7.0
   date: 2016-04-07
   course: c_tres
 
 cuatro:
-  tittle: Primer parcial
+  title: Primer parcial
   min_note: 7.0
   date: 2017-08-12
   course: c_tres

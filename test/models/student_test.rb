@@ -4,26 +4,27 @@ class StudentTest < ActiveSupport::TestCase
 
   setup do
 		@student = students(:uno)
-		@course = courses(:uno)
+		@course = courses(:c_uno)
 		@course2= courses(:c_cuatro)
 		@exams= exams(:c1_s1)
 	end
-	test "No se puden crear 2 alumnos en un mismo dni dentro de un mismo curso" do
+	test "should not create two students with the same docket for one course" do
 		assert_difference("Student.count", 0) do
-      		student= Student.create(name:"ezequiel",lastname:"manzur",course:@course,dni:@student.dni,number:13486/8)
+      		student= Student.create(first_name:"Martin",last_name:"Perez",course:@course,document:@student.document,docket:13400/8)
     	end
 	end
-	test "Se puede crear alumno con el mismo dni en distintos cursos" do
-		assert_equal(Student.count,Student.count) do
-      		student= Student.create(name:"ezequiel",lastname:"manzur",course:@course2,dni:@student.dni,number:13486/8)
+
+	test "should create exam per evaluation when creating a student" do
+  		assert_difference("Exam.count") do
+  	     	Student.create(first_name:"Ignacio",last_name:"Pau", email: "ignapau@gmail.com", course:@course2,document:35326894,docket:12504/8)
     	end
 	end
-	test "Se deben eliminar las notas de un estudiante al elminar el estudiante" do
-		cant_grades=Grade.count
+
+	test "should delete exams from student when it's deleted" do
+		cant=Exam.count
 		@student.destroy
-		assert cant_grades > Grade.count
+		assert cant > Exam.count
 	end
 	
 	
-end
 end

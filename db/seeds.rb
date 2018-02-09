@@ -32,3 +32,10 @@ student_7 = Student.create(first_name: "Mario", last_name: "Rodriguez", document
                            docket:"16254/7", email:"m.rodriguez@gmail.com", course: course_2)
 student_8 = Student.create(first_name: "Agustin", last_name: "Tau", document: "12342323",
                            docket: "12047/2", email:"a.tau@gmail.com", course: course_2)
+
+course_1.evaluations.each do |e|
+	e.exams.each do |ex|
+		ex.update note: rand(20)
+	end
+end
+

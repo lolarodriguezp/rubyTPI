@@ -27,7 +27,7 @@ class CourseTest < ActiveSupport::TestCase
 
   end
 
-end
+
 
 
 end
