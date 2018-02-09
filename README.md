@@ -12,12 +12,12 @@
 
 
 ### Descarga código fuente:
-* [Repositorio Github] (https://github.com/ezemanzur/TPI-Ruby2017)
-* [Repositorio Github] (https://github.com/ezemanzur/TPI-Ruby2017)
+* [Repositorio Github] (https://github.com/lolarodriguezp/rubyTPI)
+* [Repositorio Github] (https://github.com/lolarodriguezp/rubyTPI)
 * Desde consola:
 
 ```
-  $ git clone https://github.com/ezemanzur/TPI-Ruby2017
+  $ git clone https://github.com/lolarodriguezp/rubyTPI
   ```
 
 ### Gemas:
