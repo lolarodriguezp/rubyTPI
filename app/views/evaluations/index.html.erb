@@ -1,5 +1,6 @@
 <div class="listall">
-  <h1 class="mintitle"> <%= t 'views.evaluations.title' %></h1>
+  <h1 class="mintitle"> <%= t 'views.evaluations.title' %> </h1>
+  <h3 class="subtitle"> <%= @course %> </h3>
 
   <% if @evaluations.empty? %>
       <p class="msj"> No hay evaluaciones asignadas </p>

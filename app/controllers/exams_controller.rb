@@ -35,17 +35,15 @@ class ExamsController < ApplicationController
   end
 
   # PATCH/PUT /exams/1
-  # PATCH/PUT /exams/1.json
   def update
     if @exam.update(exam_params)
       redirect_to student_exams_path(@student), notice: 'Exam was successfully updated.'
     else
-      render :edit
+      redirect_to results_path(@course, @evaluation)
     end
   end
 
   # DELETE /exams/1
-  # DELETE /exams/1.json
   def destroy
     @exam.destroy
     redirect_to student_exams_path(@student), notice: 'Exam was successfully destroyed.'
@@ -60,6 +58,10 @@ class ExamsController < ApplicationController
 
     def set_student
       @student = Student.find(params[:student_id])
+    end
+
+    def set_student
+      @evaluation = Evaluation.find(params[:evaluation_id])
     end
 
     def set_course

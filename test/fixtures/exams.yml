@@ -1,13 +1,13 @@
-c1_s1:
+uno:
   note: 2
   student: uno
   evaluation: uno
 
-c1_s2:
+dos:
   note: 9
   student: dos
   evaluation: uno
 
-c1_s1:
+tres:
   student: uno
   evaluation: dos

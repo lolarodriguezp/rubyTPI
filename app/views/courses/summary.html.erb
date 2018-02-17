@@ -1,7 +1,101 @@
 <div class="listall">
-  <h1 class='mintitle'> <%= @course %></h1>
-  <%= render 'sum', course: @course %>
-</div>
+	<h1 class="mintitle"> Resumen de notas </h1>
+	<h2 class="subtitle"> <%= @course %></h3>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+		      <th>  <%= t 'views.students.title' %> </th>
+
+		      <% @course.evaluations.each do |e|  %>
+		      	
+		        <th colspan="2"> <%= e %> </th>
+		        <th></th>
+
+		      <% end %>
+    		</tr>    
+		</thead>
+  		<tbody>
+		    <% @course.students.each do |s| %>
+		      <tr>
+		        <td style="text-align: left">      
+		          <%= s.to_s %>
+		        </td>
+
+		        
+		        <% s.exams.each do |e| %>
+
+		          <td>
+		            <%= e %>
+		          </td>
+		          <td <% if e.approved=="Aprobado" then %> style="color: green";
+						<% elsif e.approved=="Desaprobado" %> style="color: red";
+						<% else%> style="color: grey";
+					 <% end %>
+					> <%= e.approved %> </td>
+					<td></td>
+		        <%end%>
+      		</tr>
+    		<%end%>    
+  		</tbody>
+
+  	<th>
+      <td> </td>
+      <td></td>
+      <td> </td>
+      <td></td>
+            <td> </td>
+      <td></td>
+    </th> 
+
+    <tr>
+      <thead>
+        <th > Cantidad </th>
+      </thead>
+    </tr>     
+
+      <tr>
+        <td> Aprobados </td>
+          <% @course.evaluations.each do |e| %>
+            <td colspan="3">
+              <%= e.amount_approved %>
+            </td>          
+          <% end %>
+      </tr>
+      <tr>
+        <td> Desprobados </td>
+          <% @course.evaluations.each do |e| %>
+            <td colspan="3">
+              <%= e.amount_disapproved %>
+            </td>
+          <% end %>
+      </tr>
+      <tr>
+        <td> Ausentes </td>
+          <% @course.evaluations.each do |e| %>
+            <td colspan="3">
+              <%= e.amount_absent %>
+            </td>
+          <% end %>
+      </tr>
+      <tr>
+      <thead>
+        <th></th>
+        <th></th>
+        <th></th>
+      </thead>
+      </tr>   
+      <tr>
+        <th> Porcentaje de aprobación </th>
+          <% @course.evaluations.each do |e| %>
+            <td colspan="3">
+              <%= e.percent_approved %>
+            </td>
+          <% end %>
+      </tr>
+	</table>
+	</div>
+
 <div class='bottombtn'>
   <%= link_to t('global.actions.back'), courses_path, class:' btn btn-secondary' %>		
 </div> 

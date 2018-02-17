@@ -8,13 +8,13 @@
 #
 Professor.create(email: 'p.ruby@gmail.com', password: 'ruby2017')
 
-course_1 = Course.create(name: "TTPS", year: Date.today.year)
+course_1 = Course.create(name: "TTPS", year: Date.today.year-1)
 course_2 = Course.create(name: "Lenguaje", year: Date.today.year)
 
-evaluation1 = Evaluation.create(title: "Parcial 1", date: Date.today, course: course_1, min_note: "4")
-evaluation1 = Evaluation.create(title: "Parcial 2", date: Date.today, course: course_1, min_note: "4")
-evaluation1 = Evaluation.create(title: "Parcial 1", date: Date.today, course: course_2, min_note: "4")
-evaluation1 = Evaluation.create(title: "Parcial 2", date: Date.today, course: course_2, min_note: "4")
+evaluation1 = Evaluation.create(title: "Parcial 1", date: (3.month.from_now + course_1.year), course: course_1, min_note: "9")
+evaluation1 = Evaluation.create(title: "Parcial 2", date: (6.month.from_now + course_1.year), course: course_1, min_note: "8")
+evaluation1 = Evaluation.create(title: "Parcial 1", date: (3.month.from_now + course_2.year), course: course_2, min_note: "6")
+evaluation1 = Evaluation.create(title: "Parcial 2", date: (6.month.from_now + course_2.year), course: course_2, min_note: "6")
 
 student_1 = Student.create(first_name: "Maria", last_name: "Lopez", document: "12345678", 
                            docket: "13502/7", email: "m.lopez@gmail.com", course: course_1)
@@ -35,7 +35,13 @@ student_8 = Student.create(first_name: "Agustin", last_name: "Tau", document: "1
 
 course_1.evaluations.each do |e|
 	e.exams.each do |ex|
-		ex.update note: rand(20)
+		ex.update note: rand(15)
 	end
+end
+
+course_2.evaluations.each do |e|
+   e.exams.each do |ex|
+      ex.update note: rand(10)
+   end
 end
 

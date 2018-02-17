@@ -11,6 +11,7 @@ es:
     form:
       actions:
         submit: Guardar cambios
+        resume: Resumen total
     tooltip:
       add: Agregar
     destroy: Eliminar

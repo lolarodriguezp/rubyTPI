@@ -13,6 +13,7 @@ class Student < ApplicationRecord
 
   validates :email, presence: true, format: { with: Devise.email_regexp }
 
+
   after_save :create_exams
 
   belongs_to :course

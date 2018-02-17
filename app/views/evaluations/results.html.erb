@@ -1,7 +1,9 @@
 <div class="listall">
-  <h1 class='mintitle'> <%= @evaluation %></h1>
+  <h1 class="mintitle"> <%= @evaluation %></h1>
+  <h3 class="subtitle"> <%= @course %> </h3>
   <%= render 'exams', evaluation: @evaluation %>
 </div>
+
 <div class='bottombtn'>
-  <%= link_to t('global.actions.back'), courses_path, class:' btn btn-secondary' %>		
+  <%= link_to t('global.actions.back'), course_evaluations_path(@course), class:' btn btn-secondary' %>		
 </div> 

@@ -1,4 +1,5 @@
 	class Evaluation < ApplicationRecord
+
   default_scope { order('date ASC') }
 
   validates :title, presence: true
@@ -12,19 +13,24 @@
 
   validate :validate_date
 
+
   belongs_to :course
 
   has_many :students, :through => :course
 
   has_many :exams, dependent: :destroy
 
+
   accepts_nested_attributes_for :exams
 
 
   after_save :create_exams
 
+  before_update :validate_exams
+
+
   def validate_date
-    if (date.year <= course.year) then
+    if (date.year < course.year) then
       errors.add(:date, "Debe ser igual o mayor al año del curso") 
     end
   end
@@ -61,6 +67,13 @@
     end
   end 
   
+  def validate_exams
+    exams.each do |e|
+      if (e.note < 0) then
+        errors.add(:note, "La nota debe ser mayor o igual a 0")
+      end
+    end
+  end
 
 
 end
