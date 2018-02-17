@@ -48,7 +48,7 @@
   end
 
   def amount_absent
-    exams.where("note = null").count
+    exams.where(note: nil).count
   end
 
   def percent_approved
@@ -69,8 +69,10 @@
   
   def validate_exams
     exams.each do |e|
-      if (e.note < 0) then
-        errors.add(:note, "La nota debe ser mayor o igual a 0")
+      if !(e.note.nil?) then
+        if (e.note < 0) then
+          errors.add(:exam, "La nota debe ser mayor o igual a 0")
+        end
       end
     end
   end

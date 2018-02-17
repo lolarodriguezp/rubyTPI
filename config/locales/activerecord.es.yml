@@ -36,6 +36,10 @@ es:
           attributes:
             year:
               greater_than_or_equal_to: "Debe ser mayor que o igual a %{count}."
+        exam:
+          attributes:
+            note:
+              greater_than_or_equal_to: "Debe ser mayor que o igual a %{count}." 
       messages:
         blank:   "No puede estar en blanco."
         incorrect_email_format: "Formato incorrecto."

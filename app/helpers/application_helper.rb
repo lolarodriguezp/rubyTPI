@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def flash_icon(name)
     case name
-    when 'alert'
+    when :alert
       icon('remove-sign')
     when 'info'
       icon('info-sign')

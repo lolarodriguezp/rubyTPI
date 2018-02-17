@@ -31,6 +31,8 @@ class EvaluationsController < ApplicationController
   def update
       if @evaluation.update(evaluation_params)
         redirect_to course_evaluations_path(@course), notice: 'Evaluación actualizada correctamente.'
+      elsif params[:evaluation][:exams_attributes].present?
+        redirect_to results_path(@course, @evaluation), alert: 'Las notas deben tener un valor mayor o igual a 0'
       else
         render :edit
       end
@@ -44,6 +46,7 @@ class EvaluationsController < ApplicationController
 
   def results
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
