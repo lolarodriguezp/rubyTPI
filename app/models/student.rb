@@ -30,11 +30,11 @@ class Student < ApplicationRecord
  
  private 
 
- def create_exams
-  self.course.evaluations.each do |evaluation|
-   exams.find_or_create_by(evaluation_id: evaluation.id)
-  end
- end	
+   def create_exams
+    self.course.evaluations.each do |evaluation|
+     exams.find_or_create_by(evaluation_id: evaluation.id)
+    end
+   end	
  
 
 end

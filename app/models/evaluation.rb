@@ -2,6 +2,7 @@
 
   default_scope { order('date ASC') }
 
+
   validates :title, presence: true
 
   validates :date, presence: true
@@ -26,7 +27,6 @@
 
   after_save :create_exams
 
-  before_update :validate_exams
 
 
   def validate_date
@@ -61,21 +61,10 @@
 
   private
 
-  def create_exams
-    students.each do |student|
-     exams.find_or_create_by(student_id: student.id)
-    end
-  end 
-  
-  def validate_exams
-    exams.each do |e|
-      if !(e.note.nil?) then
-        if (e.note < 0) then
-          errors.add(:exam, "La nota debe ser mayor o igual a 0")
-        end
+    def create_exams
+      students.each do |student|
+       exams.find_or_create_by(student_id: student.id)
       end
-    end
-  end
-
-
+    end 
+ 
 end

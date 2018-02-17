@@ -1,5 +1,5 @@
 <div class="listall">
-  <h1 class="mintitle">Alumnos</h1>
+  <h1 class="mintitle"><%= t 'views.students.title' %></h1>
   <h3 class="subtitle"> <%= @course %> </h3>
 
   <% if @students.empty? %>
@@ -27,8 +27,8 @@
           <td> <%= student.email %></td>
           <th>
             <div class="btn-group" role="group">
-            <%= link_to t('global.actions.edit'), edit_course_student_path(@course, student), class:'btn btn-secondary' %>
-            <%= link_to t('global.actions.destroy'), course_student_path(@course, student), method: :delete, data: {confirm: t('global.actions.confirm_destroy')}, class:'btn btn-secondary' %>
+              <%= link_to t('global.actions.edit'), edit_course_student_path(@course, student), class:'btn btn-secondary' %>
+              <%= link_to t('global.actions.destroy'), course_student_path(@course, student), method: :delete, data: {confirm: t('global.actions.confirm_destroy')}, class:'btn btn-secondary' %>
             </div>
           </th>
         </tr>
@@ -36,9 +36,10 @@
     </tbody>
   </table>
   <% end %>
-<div class="bottombtn">
-  <%= link_to 'Agregar alumno', new_course_student_path(@course), class:'btn btn-danger' %>
-</div>
+
+  <div class="bottombtn">
+    <%= link_to 'Agregar alumno', new_course_student_path(@course), class:'btn btn-danger' %>
+  </div>
 
 </div>
 
